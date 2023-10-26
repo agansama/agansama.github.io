@@ -5,14 +5,21 @@
     <script type="text/javascript">
         function getCurrentDateTime() {
             var currentDateTime = new Date();
-            var date = currentDateTime.getDate();
-            var month = currentDateTime.getMonth() + 1;
             var year = currentDateTime.getFullYear();
-            var hours = currentDateTime.getHours();
-            var minutes = currentDateTime.getMinutes();
-            var seconds = currentDateTime.getSeconds();
-            return date + "-" + month + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
+            var month = ("0" + (currentDateTime.getMonth() + 1)).slice(-2);
+            var date = ("0" + currentDateTime.getDate()).slice(-2);
+            var hours = ("0" + currentDateTime.getHours()).slice(-2);
+            var minutes = ("0" + currentDateTime.getMinutes()).slice(-2);
+            var seconds = ("0" + currentDateTime.getSeconds()).slice(-2);
+            return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
         }
+
+        function updateDateTime() {
+            var datetimeElement = document.getElementById("datetime");
+            datetimeElement.innerHTML = "当前日期和时间是：" + getCurrentDateTime();
+        }
+
+        setInterval(updateDateTime, 1000);
     </script>
 </head>
 <body>
@@ -20,8 +27,5 @@
     <p>在这里，你可以找到各种有趣和有用的信息。</p>
     <h2 id="datetime"></h2>
     <a href="https://www.baidu.com">点击这里访问百度</a>
-    <script type="text/javascript">
-        document.getElementById("datetime").innerHTML = "当前日期和时间是：" + getCurrentDateTime();
-    </script>
 </body>
 </html>
