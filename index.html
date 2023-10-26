@@ -2,10 +2,26 @@
 <html>
 <head>
     <title>我的博客</title>
+    <script type="text/javascript">
+        function getCurrentDateTime() {
+            var currentDateTime = new Date();
+            var date = currentDateTime.getDate();
+            var month = currentDateTime.getMonth() + 1;
+            var year = currentDateTime.getFullYear();
+            var hours = currentDateTime.getHours();
+            var minutes = currentDateTime.getMinutes();
+            var seconds = currentDateTime.getSeconds();
+            return date + "-" + month + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
+        }
+    </script>
 </head>
 <body>
     <h1>欢迎来到我的博客</h1>
     <p>在这里，你可以找到各种有趣和有用的信息。</p>
+    <h2 id="datetime"></h2>
     <a href="https://www.baidu.com">点击这里访问百度</a>
+    <script type="text/javascript">
+        document.getElementById("datetime").innerHTML = "当前日期和时间是：" + getCurrentDateTime();
+    </script>
 </body>
 </html>
