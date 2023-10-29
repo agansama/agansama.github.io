@@ -1,3 +1,4 @@
-# blog
-This is a test repo,maybe I will really use it for my blog
-https://agansama.github.io/blog/
+早在3年前就尝试使用github托管网页，本意是利用github托管一个自己的博客。奈何那时候还太年轻，搞来搞去没搞懂这玩意怎么玩。
+现在倒是成功搭建了环境，不过创建博客的心思却被冲淡了不少，缘由发现这东西可以给一些人带来些许快乐，技术不是为了炫技而存在，也许这才是技术进步最初的意义。
+在路上。
+——2022.10.29
