@@ -58,20 +58,15 @@
     <h1>欢迎来到我们的小窝</h1>  
     <p>在这里，你可以找到各种有趣和有用的信息。</p>  
 	<h2 id="datetime"></h2>
+	<p></p>
     <h2 id="countdown"></h2> <!-- 这里是倒计时的显示位置 -->  
-	<audio id="bgm1" src="https://github.com/agansama/agansama.github.io/bgm1.mp3" preload="auto"></audio>
-	<script>
-		window.onload = function() {
-			var bgm1 = document.getElementById('bgm1');
-			bgm1.oncanplaythrough = function() {
-				setInterval(function() {
-					bgm1.play();
-					if(bgm1.paused){
-						bgm1.play(); // 如果音乐播放后暂停了，再次播放
-					}
-				}, 1000); // 每5秒钟播放一次音乐，可以根据需要调整
-			};
-		};
-	</script>
+	<p>要不要来首bgm</p>
+	<audio id="myAudio" controls>
+        <source src="../bgm1.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    <script type="text/javascript">
+        document.getElementById("myAudio").play();
+    </script>
 </body>  
 </html>
