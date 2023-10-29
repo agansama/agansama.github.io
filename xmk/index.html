@@ -10,7 +10,8 @@
 	<h1>这是一个关于网页媒体播放的测试</h1>
     <p>1.用来测试网页是否可以在打开时自动播放bgm</p>
 	<p>2.用来测试条件触发后是否会自动播放bgm2</p>
-	<audio id="bgm1" src="file:///E:/gitProject/agansama.github.io/xmk/bgm1.mp3" preload="auto"></audio>
+	<p>2.用来测试要访问项目仓库中的文件，需要输入的文件路径</p>
+	<audio id="bgm1" src="/bgm1.mp3" preload="auto"></audio>
 	<script>
 		window.onload = function() {
 			var bgm1 = document.getElementById('bgm1');
@@ -23,7 +24,10 @@
 				}, 1000); // 每5秒钟播放一次音乐，可以根据需要调整
 			};
 		};
-</script>
+	</script>
+    <script type="text/javascript">
+        document.getElementById("myAudio").play();
+    </script>
     <a href=https://agansama.github.io/test/abc.txt>点击这里访问百度</a>
 </body>
 </html>
