@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TEST</title>
+</head>
+<body>
+    <h1>这是一个关于页面跳转的测试</h1>
+    <p>1.用来测试什么样的超链接可以跳转到文件并将其解码在浏览器中显示</p>
+	<p>2.用来测试使用超链接跳转到一个子目录后是否读取子目录下的index.html文件</p>
+	<h1>这是一个关于网页媒体播放的测试</h1>
+    <p>1.用来测试网页是否可以在打开时自动播放bgm</p>
+	<p>2.用来测试条件触发后是否会自动播放bgm2</p>
+	<audio id="bgm1" src="file:///E:/gitProject/agansama.github.io/xmk/bgm1.mp3" preload="auto"></audio>
+	<script>
+		window.onload = function() {
+			var bgm1 = document.getElementById('bgm1');
+			bgm1.oncanplaythrough = function() {
+				setInterval(function() {
+					bgm1.play();
+					if(bgm1.paused){
+						bgm1.play(); // 如果音乐播放后暂停了，再次播放
+					}
+				}, 1000); // 每5秒钟播放一次音乐，可以根据需要调整
+			};
+		};
+</script>
+    <a href=https://agansama.github.io/test/abc.txt>点击这里访问百度</a>
+</body>
+</html>

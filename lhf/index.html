@@ -1,0 +1,77 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>我们的小窝</title>  
+    <script type="text/javascript">    
+    function getCurrentDateTime() {    
+        var currentDateTime = new Date();    
+        var year = currentDateTime.getFullYear();    
+        var month = ("0" + (currentDateTime.getMonth() + 1)).slice(-2);    
+        var date = ("0" + currentDateTime.getDate()).slice(-2);    
+        var hours = ("0" + currentDateTime.getHours()).slice(-2);    
+        var minutes = ("0" + currentDateTime.getMinutes()).slice(-2);    
+        var seconds = ("0" + currentDateTime.getSeconds()).slice(-2);    
+        return year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;    
+    }    
+    
+    function updateDateTime() {    
+        var datetimeElement = document.getElementById("datetime");    
+        datetimeElement.innerHTML = "当前时间是：" + getCurrentDateTime();    
+    }    
+    
+    function countdown() {  
+        var targetDate = new Date("2023-11-04T00:00:00"); // 目标日期  
+        var countdown = setInterval(function() {  
+            var now = new Date().getTime(); // 当前时间  
+            var distance = targetDate - now; // 距离目标日期的时间差  
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24)); // 计算天数  
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // 计算小时数  
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // 计算分钟数  
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000); // 计算秒数  
+            if (distance < 0) {  
+                clearInterval(countdown); // 如果距离目标日期的时间差小于0，则停止倒计时  
+                document.getElementById("countdown").innerHTML = "祝李海芬生日快乐！"; // 显示祝福语  
+            } else {  
+                document.getElementById("countdown").innerHTML = "距离李海芬的生日还有 " + days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒"; // 更新倒计时显示内容  
+            }  
+        }, 1000); // 每秒钟更新一次倒计时显示内容  
+    }  
+    
+    function checkBirthday() {  
+        var currentDateTime = new Date();  
+        var targetDate = new Date("2023-11-04T00:00:00"); // 李海芬的生日目标日期  
+        if (currentDateTime >= targetDate) {  
+            clearInterval(countdown); // 如果当前时间大于等于目标日期，则停止倒计时  
+            document.getElementById("countdown").innerHTML = "祝李海芬生日快乐！"; // 显示祝福语  
+        } else {  
+            countdown(); // 如果当前时间小于目标日期，则继续倒计时  
+        }  
+    }  
+    
+    setInterval(function() {    
+        updateDateTime(); // 在这里调用 updateDateTime 函数来更新日期和时间的内容    
+        checkBirthday(); // 在这里调用 checkBirthday 函数来检查是否到达李海芬的生日并更新倒计时显示内容    
+    }, 1000);  // 每秒钟更新一次日期和时间的内容以及检查是否到达李海芬的生日并更新倒计时显示内容    
+    </script>  
+</head>  
+<body>  
+    <h1>欢迎来到我们的小窝</h1>  
+    <p>在这里，你可以找到各种有趣和有用的信息。</p>  
+	<h2 id="datetime"></h2>
+    <h2 id="countdown"></h2> <!-- 这里是倒计时的显示位置 -->  
+	<audio id="bgm1" src="https://github.com/agansama/agansama.github.io/bgm1.mp3" preload="auto"></audio>
+	<script>
+		window.onload = function() {
+			var bgm1 = document.getElementById('bgm1');
+			bgm1.oncanplaythrough = function() {
+				setInterval(function() {
+					bgm1.play();
+					if(bgm1.paused){
+						bgm1.play(); // 如果音乐播放后暂停了，再次播放
+					}
+				}, 1000); // 每5秒钟播放一次音乐，可以根据需要调整
+			};
+		};
+	</script>
+</body>  
+</html>
