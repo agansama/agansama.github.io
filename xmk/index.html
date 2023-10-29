@@ -25,8 +25,37 @@
 			};
 		};
 	</script>
+	<p>"/bgm1.mp3"</p>
+    <audio id="myAudio" controls>
+        <source src="/bgm1.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
     <script type="text/javascript">
         document.getElementById("myAudio").play();
+    </script>
+	<p>"../bgm1.mp3"</p>
+	<audio id="myAudio2" controls>
+        <source src="../bgm1.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    <script type="text/javascript">
+        document.getElementById("myAudio2").play();
+    </script>
+	<p>"/root/bgm1.mp3"</p>
+	<audio id="myAudio3" controls>
+        <source src="/root/bgm1.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    <script type="text/javascript">
+        document.getElementById("myAudio3").play();
+    </script>
+	<p>"root/bgm1.mp3"</p>
+	<audio id="myAudio3" controls>
+        <source src="root/bgm1.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+    <script type="text/javascript">
+        document.getElementById("myAudio3").play();
     </script>
     <a href=https://agansama.github.io/test/abc.txt>点击这里访问百度</a>
 </body>
