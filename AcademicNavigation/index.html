@@ -1,0 +1,111 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>学术导航</title>  
+	<script type="text/javascript" src="../lib/LunarCalendar.min.js"></script> <!-- 引入lunar-calendar库 -->  
+	<script type="text/javascript">  
+		function getCurrentDateTime() {
+			var currentDateTime = new Date();    
+			var year = currentDateTime.getFullYear();    
+			var month = ("0" + (currentDateTime.getMonth() + 1)).slice(-2);    
+			var date = ("0" + currentDateTime.getDate()).slice(-2);    
+			var hours = ("0" + currentDateTime.getHours()).slice(-2);    
+			var minutes = ("0" + currentDateTime.getMinutes()).slice(-2);    
+			var seconds = ("0" + currentDateTime.getSeconds()).slice(-2); 
+			var weekDay = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"][currentDateTime.getDay()];
+			var currentDateTime = window.LunarCalendar.solarToLunar(year,month,date);    
+			var lunarMonth = currentDateTime.lunarMonthName;    
+			var lunarDay = currentDateTime.lunarDayName;       
+			return year + "年" + month + "月" + date + "日" + " 农历" + lunarMonth + lunarDay + " " + weekDay + " 当前时间 " + hours + ":" + minutes + ":" + seconds;  
+		}    
+		
+		function updateDateTime() {    
+			var datetimeElement = document.getElementById("datetime");    
+			datetimeElement.innerHTML = "今天是 " + getCurrentDateTime();    
+		}
+		
+		setInterval(function() {    
+        updateDateTime(); // 在这里调用 updateDateTime 函数来更新日期和时间的内容,使函数在页面中生效    
+		}, 1000); 
+		  
+    </script>     
+</head>   
+  
+<body>  
+   
+    <h1>欢迎来到学术导航</h1>  
+   
+    <h2 id="datetime"></h2>  
+
+	<h2>1 语言模型工具</h2>
+		<table>
+			<tr>
+				<td>
+					<a href="https://yiyan.baidu.com/">文心一言</a>
+				</td>
+				<td>
+					<a href="https://chatglm.cn/main/code">智谱清言</a>
+				</td>
+				<td>
+					<a href="https://poe.com">POE</a>
+				</td>
+				<td>
+					<a href="https://chat.openai.com/chat">ChatGPT</a>
+				</td>
+				<td>
+					<a href="https://xinghuo.xfyun.cn/">讯飞星火</a>
+				</td>
+				<td>
+					<a href="https://hunyuan.tencent.com/">腾讯混元</a>
+				</td>
+				<td>
+					<a href="https://chat.openai.com/chat">ChatGPT</a>
+				</td>
+				<td>
+					<a href="https://chat.openai.com/chat">ChatGPT</a>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td>2行3列</td>
+			</tr>
+			<tr>
+				<td>3行1列</td>
+				<td>3行2列</td>
+				<td>3行3列</td>
+			</tr>
+			<tr>
+				<td>4行1列</td>
+				<td>4行2列</td>
+				<td>4行3列</td>
+			</tr>
+		</table>
+	<h2>2 计算编程工具</h2>
+		<table>
+			<tr>
+				<td>
+					<a href="https://yiyan.baidu.com/?from=baidu_pc_index">文心一言</a>
+				</td>
+				<td>1行2列</td>
+				<td>1行3列</td>
+			</tr>
+			<tr>
+				<td>2行1列</td>
+				<td>2行2列</td>
+				<td>2行3列</td>
+			</tr>
+			<tr>
+				<td>3行1列</td>
+				<td>3行2列</td>
+				<td>3行3列</td>
+			</tr>
+			<tr>
+				<td>4行1列</td>
+				<td>4行2列</td>
+				<td>4行3列</td>
+			</tr>
+		</table>
+	
+</body>
+</html>
