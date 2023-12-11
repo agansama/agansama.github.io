@@ -1,0 +1,55 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>留言板</title>  
+    <style>  
+        #message {  
+            width: 300px;  
+            height: 200px;  
+            overflow-y: scroll;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <h1>留言板</h1>  
+    <form id="messageForm">  
+        <label for="name">姓名：</label><br>  
+        <input type="text" id="name" name="name"><br>  
+        <label for="message">留言：</label><br>  
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br>  
+        <input type="submit" value="提交">  
+    </form>  
+    <div id="messageBox"></div>  
+  
+    <script>  
+        // 获取存储空间  
+        var storage = window.localStorage;  
+  
+        document.getElementById('messageForm').addEventListener('submit', function(e) {  
+            e.preventDefault(); // 防止表单提交导致页面刷新  
+            var name = document.getElementById('name').value;  
+            var message = document.getElementById('message').value;  
+  
+            // 将留言存储到localStorage中  
+            storage.setItem(name, message);  
+  
+            var div = document.getElementById('messageBox');  
+            div.innerHTML += '<p>' + name + ': ' + message + '</p>';  
+  
+            document.getElementById('name').value = '';  
+            document.getElementById('message').value = '';  
+        });  
+  
+        // 在页面加载时读取并显示之前的留言  
+        window.onload = function() {  
+            var div = document.getElementById('messageBox');  
+            var keys = storage.keys(); // 获取所有键名  
+            for (var i = 0; i < keys.length; i++) {  
+                var key = keys[i];  
+                var value = storage.getItem(key);  
+                div.innerHTML += '<p>' + key + ': ' + value + '</p>';  
+            }  
+        }  
+    </script>  
+</body>  
+</html>

@@ -2,6 +2,14 @@
 <html>
 <head>
     <title>TEST</title>
+	<style>  
+        #message {  
+            width: 300px;  
+            height: 200px;  
+            overflow-y: scroll;  
+        }  
+    </style>
+	
 	<script type="text/javascript" src="../lib/LunarCalendar.min.js"></script> <!-- 引入lunar-calendar库 -->
 	<script type="text/javascript"> 
 		
@@ -91,5 +99,27 @@
 	<script type="text/javascript">
         document.getElementById("datetime2").innerHTML = "当前日期和时间是：" + getCurrentDateTime();
     </script>
+	
+	<h1>留言板</h1>  
+    <form id="messageForm">  
+        <label for="name">姓名：</label><br>  
+        <input type="text" id="name" name="name"><br>  
+        <label for="message">留言：</label><br>  
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br>  
+        <input type="submit" value="提交">  
+    </form>  
+    <div id="messageBox"></div>  
+  
+    <script>  
+        document.getElementById('messageForm').addEventListener('submit', function(e) {  
+            e.preventDefault(); // 防止表单提交导致页面刷新  
+            var name = document.getElementById('name').value;  
+            var message = document.getElementById('message').value;  
+            var div = document.getElementById('messageBox');  
+            div.innerHTML += '<p>' + name + ': ' + message + '</p>';  
+            document.getElementById('name').value = '';  
+            document.getElementById('message').value = '';  
+        });  
+    </script> 
 </body>
 </html>
